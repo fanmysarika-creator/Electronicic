@@ -1,0 +1,73 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="theme-color" content="#1454c5">
+<meta name="description" content="Демонстрационный электронный дневник">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="default">
+<link rel="manifest" href="manifest.webmanifest">
+<link rel="icon" href="icons/icon-192.png">
+<link rel="apple-touch-icon" href="icons/icon-192.png">
+<title>Я учусь в Кузбассе</title>
+<style>
+*{box-sizing:border-box}
+body{margin:0;background:#f3f6fb;color:#243247;font-family:Inter,system-ui,-apple-system,Segoe UI,Arial,sans-serif}
+header{min-height:68px;background:#fff;border-bottom:1px solid #e5eaf1;display:flex;align-items:center;padding:12px max(18px,calc((100vw - 920px)/2));gap:12px}
+.logo{width:38px;height:38px;flex:none;border-radius:12px;background:#356fe5;color:#fff;display:grid;place-items:center;font-size:21px;font-weight:800}
+.brand{font-weight:750;font-size:17px;letter-spacing:-.3px}
+main{max-width:920px;margin:26px auto;padding:0 16px}
+h1{font-size:25px;margin:0 0 6px;font-weight:750;letter-spacing:-.7px}
+.sub{color:#8190a4;font-size:14px;margin-bottom:20px}
+.profile{background:#fff;border:1px solid #e6ebf2;border-radius:16px;padding:17px 19px;margin-bottom:16px}
+.name{font-weight:750;font-size:17px;margin-bottom:6px;overflow-wrap:anywhere}
+.meta{font-size:13px;color:#718198}
+.daybar{display:flex;align-items:center;justify-content:space-between;margin:22px 2px 12px}
+.daybar strong{font-size:17px}
+.daybar span{font-size:13px;color:#8190a4}
+.card{background:#fff;border:1px solid #e6ebf2;border-radius:17px;overflow:hidden;box-shadow:0 5px 22px #263a5808}
+.row{display:grid;grid-template-columns:42px minmax(0,1fr) 70px 94px;align-items:center;min-height:59px;padding:0 18px;border-bottom:1px solid #edf0f5;gap:10px}
+.row:last-child{border-bottom:0}
+.head{min-height:43px;background:#fafbfd;color:#8190a4;font-size:11px;font-weight:700;letter-spacing:.5px;text-transform:uppercase}
+.num{color:#94a0b0;font-size:13px}
+.subject{font-weight:600;font-size:14px}
+.grade{justify-self:center;width:32px;height:32px;border-radius:10px;background:#e8f7ee;color:#209653;display:grid;place-items:center;font-size:16px;font-weight:800}
+.time{justify-self:end;color:#8794a6;font-size:13px}
+@media(max-width:520px){main{margin:20px auto}.row{grid-template-columns:25px minmax(0,1fr) 45px 72px;padding:0 11px;gap:7px}.subject{font-size:13px}.time{font-size:12px}.head{font-size:9px}.name{font-size:16px}h1{font-size:23px}}
+</style>
+</head>
+<body>
+<header><div class="logo">Д</div><div class="brand">Я учусь в Кузбассе</div></header>
+<main>
+<h1>Мой дневник</h1>
+<div class="sub">Успеваемость</div>
+<section class="profile">
+ <div class="name">Ученик</div>
+ <div class="meta">4 класс</div>
+</section>
+<div class="daybar"><strong>Понедельник</strong><span>Пример расписания · 5 уроков</span></div>
+<section class="card" aria-label="Расписание и оценки">
+ <div class="row head"><div>№</div><div>Предмет</div><div style="text-align:center">Оценка</div><div style="text-align:right">Урок</div></div>
+ <div class="row"><div class="num">1</div><div class="subject">Русский язык</div><div class="grade">5</div><div class="time">1 урок</div></div>
+ <div class="row"><div class="num">2</div><div class="subject">Математика</div><div class="grade">5</div><div class="time">2 урок</div></div>
+ <div class="row"><div class="num">3</div><div class="subject">Литературное чтение</div><div class="grade">5</div><div class="time">3 урок</div></div>
+ <div class="row"><div class="num">4</div><div class="subject">Окружающий мир</div><div class="grade">5</div><div class="time">4 урок</div></div>
+ <div class="row"><div class="num">5</div><div class="subject">Физическая культура</div><div class="grade">5</div><div class="time">5 урок</div></div>
+</section>
+<div class="daybar"><strong>Другие предметы</strong><span>4 класс</span></div>
+<section class="card" aria-label="Другие школьные предметы">
+ <div class="row"><div class="num">—</div><div class="subject">Английский язык</div><div class="grade">5</div><div class="time">—</div></div>
+ <div class="row"><div class="num">—</div><div class="subject">Музыка</div><div class="grade">5</div><div class="time">—</div></div>
+ <div class="row"><div class="num">—</div><div class="subject">Изобразительное искусство</div><div class="grade">5</div><div class="time">—</div></div>
+ <div class="row"><div class="num">—</div><div class="subject">Труд (технология)</div><div class="grade">5</div><div class="time">—</div></div>
+ <div class="row"><div class="num">—</div><div class="subject">ОРКСЭ</div><div class="grade">5</div><div class="time">—</div></div>
+</section>
+</main>
+<script>
+if ('serviceWorker' in navigator) {
+  window.addEventListener('load', () => navigator.serviceWorker.register('./sw.js').catch(()=>{}));
+}
+</script>
+</body>
+</html>
